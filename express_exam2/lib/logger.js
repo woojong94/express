@@ -20,7 +20,7 @@ module.exports = async (message, mode) => {
 			day = (day < 10)? `0${day}` : day;
 		
 		const filename = logDir + "/" +`${year}${month}${day}.log` ;
-			
+		console.log(filename);
 		/* 메세지 기록 시간 */	
 		let hours = date.getHours();
 			hours = (hours < 10)? `0${hours}` :hours;
