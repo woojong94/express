@@ -1,13 +1,13 @@
 {
-  "name": "express_exam2",
+  "name": "express_exam5",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app",
-    "start": "cross-env NODE_ENV=production pm2 start app.js"
+    "dev" : "nodemon app",
+	"start" : "cross-env NODE_ENV=production pm2 start app.js"
   },
-  "author": "woody",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "cross-env": "^7.0.3",
