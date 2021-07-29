@@ -12,3 +12,4 @@ res.render("board/list", 객체 데이터);
 { title : "제목" }
 {{ title }}
 
+
