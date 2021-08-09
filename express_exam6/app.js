@@ -7,6 +7,7 @@ const logger = require('./lib/logger');
 const multer = require('multer');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const bootStrap = require("./boot");	// index.js 생략
 
 /** multer 설정  */
 const upload = multer({
@@ -55,6 +56,8 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 
 app.set('PORT', process.env.PORT || 3000);
 
+
+
 app.use(morgan('dev'));
 app.use(cookieParser(process.env.COOKIE_SECRET));	// cookieParser(인수 -- cookie 검증 비밀번호)
 app.use(session({
@@ -63,6 +66,8 @@ app.use(session({
 	secret: process.env.COOKIE_SECRET,
 	name : "sessid",
 }));
+
+app.use(bootStrap); // 사이트 초기화 미들웨어
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
