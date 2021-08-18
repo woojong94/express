@@ -1,0 +1,17 @@
+1. npm init - package.json 생성
+2. package.json 설정
+		npm 사용자 정의 명령어 - script
+		1) 개발용 명령어
+		2) 서비스용 명령어
+
+3.
+	npm i express dotenv morgan pm2 cross-env nunjucks cookie-parser express-session bcrypt winston
+	npm i -D nodemon
+	
+4. app.js + 셋팅
+
+5. 회원가입, 로그인, 로그아웃
+
+회원가입	- 파일 데이터(json) - JSON.stringify
+로그인	- JSON.parse
+로그아웃	- req.session.destroy();

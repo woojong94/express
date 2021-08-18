@@ -7,8 +7,12 @@ const logger = require('./lib/logger');
 const multer = require('multer');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+<<<<<<< HEAD
 const { sequelize } = require('./models');
 
+=======
+const bootStrap = require("./boot");	// index.js 생략
+>>>>>>> 3bd5510b2c7a1b4689220976f0e234faa150f35b
 
 /** multer 설정  */
 const upload = multer({
@@ -69,6 +73,8 @@ sequelize.sync({ force : false })
 
 app.set('PORT', process.env.PORT || 3000);
 
+
+
 app.use(morgan('dev'));
 app.use(cookieParser(process.env.COOKIE_SECRET));	// cookieParser(인수 -- cookie 검증 비밀번호)
 app.use(session({
@@ -77,6 +83,8 @@ app.use(session({
 	secret: process.env.COOKIE_SECRET,
 	name : "sessid",
 }));
+
+app.use(bootStrap); // 사이트 초기화 미들웨어
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
