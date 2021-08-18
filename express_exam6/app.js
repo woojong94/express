@@ -7,6 +7,8 @@ const logger = require('./lib/logger');
 const multer = require('multer');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const { sequelize } = require('./models');
+
 
 /** multer 설정  */
 const upload = multer({
@@ -52,6 +54,18 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 	express : app,
 	watch : true,
 });
+
+
+sequelize.sync({ force : false })
+	.then(() => {
+		console.log("데이터베이스 연결 성공!");
+	})
+	.catch((err) => {
+		// 로거있으면 로거에 기록
+		console.error(err);
+	});
+
+
 
 app.set('PORT', process.env.PORT || 3000);
 
