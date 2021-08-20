@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        {% block style %}
+        {% endblock %}
+        {% if addCss.length > 0 %}
+        {% for fileName in addCss %}
+        <link rel="stylesheet" type="text/css" href="/css/{{ fileName }}.css"
+        {% endfor %}
+        {% endif %}
+        <script src="/js/commin.js"></script>
+        {% block script %}
+        {% if addScript.length > 0 %}
+        {% for script in addScript %}
+        <script src="/js/{{ script }}.js"></script>
+        {% endfor %}
+        {% endif %}
+    </head>
+    <body></body>
+</html>
